@@ -1,0 +1,9 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:UI="clr-namespace:Mirror.UI;assembly=Mirror.UI" x:Class="MainWindow"
+    Title="Mirror" Height="350" Width="525">
+    <Grid>
+            <UI:AssembliesTree Name="AssBrowser" FontFamily="Calibri"/>
+    </Grid>
+</Window>
