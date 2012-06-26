@@ -1,0 +1,28 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" x:Class="MainDictionary"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:core="clr-namespace:Mirror.Core;assembly=Mirror.Core"
+                    xmlns:ui="clr-namespace:Mirror.UI">
+    <ui:ImageConverter x:Key="ImageCon"/>
+    <Style x:Key="TreeItemStyle" TargetType="TreeViewItem" >
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="Transparent" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <HierarchicalDataTemplate x:Key="ElementTampl" ItemsSource="{Binding Path=Children, IsAsync=True}">
+        <StackPanel Orientation="Horizontal" Tag="{Binding}">
+            <Grid Height="16" Width="16">
+                <Image Source="{Binding Converter={StaticResource ResourceKey=ImageCon}, IsAsync=True, ConverterParameter=0}" ToolTip="{Binding ImageToolTip}" />
+                <Image Source="{Binding Converter={StaticResource ResourceKey=ImageCon}, ConverterParameter=1}" 
+                       Height="9" Width="9" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+            </Grid>
+            <ui:LinkedBlock VerticalAlignment="Center" Text="{Binding Path=FullTreeData}" ToolTip="{Binding Path=ToolTip}"  Padding="0" Margin="3,0,0,0" />
+        </StackPanel>
+        <HierarchicalDataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Path=Access}" Value="4">
+                <Setter Property="Opacity" Value="0.7"/>
+            </DataTrigger>
+        </HierarchicalDataTemplate.Triggers>
+    </HierarchicalDataTemplate>
+</ResourceDictionary>
