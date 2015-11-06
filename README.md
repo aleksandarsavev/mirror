@@ -1,4 +1,4 @@
 mirror
 ======
 
-a tiny Reflection tool vor .net
+a tiny Reflection tool for .net
